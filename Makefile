@@ -1,4 +1,4 @@
-NAME			= 	cub3d
+NAME			= 	cub3D
 
 SRCS			= 	${shell find ./sources ./parsing -name "*.c"}
 HDRS			=	${shell find ./includes -name "*.h"}

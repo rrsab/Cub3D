@@ -24,4 +24,4 @@ add_executable(Cub3D ${SRC} src/rendering/cb_calculate.c)
 
 include_directories(Cub3D ${CMAKE_CURRENT_SOURCE_DIR}/inc/)			# Расположение заголовочных файлов
 target_link_libraries (Cub3D ${CMAKE_CURRENT_SOURCE_DIR}/src/libft/libft.a) # Линковка программы с библиотекой
-target_link_libraries (Cub3D ${CMAKE_CURRENT_SOURCE_DIR}/src/minilibx_opengl/libmlx.a)ries (Cub3D readline)
+target_link_libraries (Cub3D ${CMAKE_CURRENT_SOURCE_DIR}/src/minilibx_opengl/libmlx.a)

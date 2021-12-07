@@ -1,1 +1,1 @@
-# minishell
+# Cub3D

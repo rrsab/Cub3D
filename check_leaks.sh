@@ -1,10 +1,10 @@
 # !/bin/bash
 while true; do
-	minishell_pid=$(pgrep minishell)
-	if [ -n "$minishell_pid" ]
+	cub3d_pid=$(pgrep cub3d)
+	if [ -n "$cub3d_pid" ]
 	then
 		leaks_result=$( leaks -q --list minishell ) 
-		lsof_result=$( lsof -p $minishell_pid )
+		lsof_result=$( lsof -p $cub3d_pid )
 		processes=$(ps)
 		echo "                                 LEAKS CHECK"
 		echo "$leaks_result"

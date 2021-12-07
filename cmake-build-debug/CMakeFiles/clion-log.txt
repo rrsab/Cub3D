@@ -1,0 +1,6 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/salyce/CLionProjects/Cub3D
+CMake Error at CMakeLists.txt:27:
+  Parse error.  Expected a newline, got identifier with text "ries".
+
+
+-- Configuring incomplete, errors occurred!

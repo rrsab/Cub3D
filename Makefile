@@ -1,4 +1,4 @@
-NAME			= 	minishell
+NAME			= 	cub3d
 
 SRCS			= 	${shell find ./sources ./parsing -name "*.c"}
 HDRS			=	${shell find ./includes -name "*.h"}

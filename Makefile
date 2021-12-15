@@ -1,12 +1,12 @@
 NAME			= 	cub3D
 
-SRCS			= 	${shell find ./sources ./parsing -name "*.c"}
+SRCS			= 	${shell find ./sources -name "*.c"}
 HDRS			=	${shell find ./includes -name "*.h"}
 
-INCS		=		-I./includes -I./libft/
+INCS		=		-I./includes/ -I./minilibx/ -I./libft/
 GCC				=	gcc -Wall -Wextra -Werror
 
-LIBFT			=	./libft/libft.a
+LIBFT			=	./libmlx.dylib ./libft/libft.a
 LFLAGS			=	-L ./libft -lft
 
 #COLORS
@@ -15,8 +15,8 @@ BLUE			=	\033[36;1m
 PURPLE			=	\033[35;1m
 RESET			=	\033[0m
 
-RDL_INC			=	-I ~/.brew/opt/readline/include/
-RDL				=	-lreadline -L ~/.brew/opt/readline/lib $(RDL_INC)
+#RDL_INC			=	-I ~/.brew/opt/readline/include/
+#RDL				=	-lreadline -L ~/.brew/opt/readline/lib $(RDL_INC)
 
 all				:	$(NAME) $(LIBFT)
 
@@ -27,10 +27,12 @@ $(LIBFT)		:	./libft/*.c ./libft/*.h
 OBJS			=	$(patsubst %.c, %.o, $(SRCS))
 
 %.o:				%.c
-					$(GCC) $(RDL_INC) -c -g $< -o $@
+					$(GCC) -c -g $< -o $@ $(INCS)
 
 $(NAME)			:	$(OBJS) $(HDRS) $(LIBFT)
-					@$(GCC) $(INCS) $(OBJS) $(LFLAGS) -o $(NAME) $(RDL)
+					$(MAKE) -C minilibx/
+					cp minilibx/libmlx.dylib .
+					@$(GCC) $(OBJS) -o $(NAME) $(LIBFT)
 					@echo "\n$(NAME): $(GREEN)object files were created$(RESET)"
 					@echo "$(NAME): $(GREEN)project was created$(RESET)\n"
 

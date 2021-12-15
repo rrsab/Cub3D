@@ -1,7 +1,7 @@
-#include "../includes/cub3d.h"
+#include "./../includes/cub3d.h"
 
 
-void	cb_rendering(t_main *data)
+void	cb_rendering(t_m *data)
 {
 	cb_render_floor_ceiling(data);
 	cb_render_cub(data);
@@ -11,7 +11,7 @@ void	cb_rendering(t_main *data)
 
 int	main(int argc, char **argv)
 {
-	t_main	data;
+	t_m	data;
 	t_map	map;
 	t_win	win;
 	t_plr	plr;
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	data.plr = &plr;
 	data.lodev = &lodev;
 	parsing(argc, argv[1], &data);
-	cb_init_main_struct(&data);
+	ft_init_struct(&data);
 	cb_rendering(&data);
 	cb_handle_events(&data);
 	mlx_loop(data.win->mlx_ptr);

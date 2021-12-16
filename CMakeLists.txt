@@ -13,7 +13,7 @@ set(CMAKE_C_FLAGS "-Wall -Wextra -Werror")
 
 FILE(GLOB SRC
         "sources/main.c"
-        "sources/parsing/*.c"
+        "sources/parser/*.c"
         "sources/utils/*.c"
         "sources/render/*.c"
         )

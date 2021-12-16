@@ -40,7 +40,7 @@ static void	init_lodev_stuct(t_lodev *lodev)
 	lodev->side = '0';
 }
 
-void	ft_init_struct(t_m *data)
+void	ft_init_struct(t_main *data)
 {
 	data->zoom = 8;
 	cb_init_mlx(data->win);

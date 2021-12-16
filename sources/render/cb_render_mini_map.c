@@ -1,6 +1,6 @@
 #include "../../includes/cub3d.h"
 
-static void	print_player(t_m *data, int start_x, int start_y, int color)
+static void	print_player(t_main *data, int start_x, int start_y, int color)
 {
 	int	y;
 	int	x;
@@ -18,7 +18,7 @@ static void	print_player(t_m *data, int start_x, int start_y, int color)
 	}
 }
 
-static void	print_rectangle(t_m *data, int start_x, int start_y, int color)
+static void	print_rectangle(t_main *data, int start_x, int start_y, int color)
 {
 	int	y;
 	int	x;
@@ -36,7 +36,7 @@ static void	print_rectangle(t_m *data, int start_x, int start_y, int color)
 	}
 }
 
-static void	cast_rays(t_m *data)
+static void	cast_rays(t_main *data)
 {
 	t_plr	ray;
 	float	start;
@@ -62,7 +62,7 @@ static void	cast_rays(t_m *data)
 	}
 }
 
-static void	print_flat_map(t_m *data)
+static void	print_flat_map(t_main *data)
 {
 	int	x;
 	int	y;
@@ -85,7 +85,7 @@ static void	print_flat_map(t_m *data)
 	}
 }
 
-void	cb_render_mini_map(t_m *data)
+void	cb_render_mini_map(t_main *data)
 {
 	print_flat_map(data);
 	print_player(data, data->plr->x * data->zoom,

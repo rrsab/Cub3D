@@ -1,6 +1,6 @@
 #include "../../includes/cub3d.h"
 
-int	cb_handle_keyboard(int key, t_m *data)
+int	cb_handle_keyboard(int key, t_main *data)
 {
 	if (key == MAIN_PAD_ESC)
 		cb_terminate(data);
@@ -13,13 +13,13 @@ int	cb_handle_keyboard(int key, t_m *data)
 	return (0);
 }
 
-int	cb_terminate(t_m *data)
+int	cb_terminate(t_main *data)
 {
 	mlx_destroy_window(data->win->mlx_ptr, data->win->win_ptr);
 	exit(0);
 }
 
-int	cb_handle_events(t_m *data)
+int	cb_handle_events(t_main *data)
 {
 	mlx_hook(data->win->win_ptr, 2, 0, cb_handle_keyboard, data);
 	mlx_hook(data->win->win_ptr, 17, 0, cb_terminate, data);

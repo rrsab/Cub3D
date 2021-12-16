@@ -1,6 +1,6 @@
 #include "../../includes/cub3d.h"
 
-void	cb_render_floor_ceiling(t_m *data)
+void	cb_render_floor_ceiling(t_main *data)
 {
 	int	i;
 	int	j;

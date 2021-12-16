@@ -1,6 +1,8 @@
 NAME			= 	cub3D
+NAME_BONUS		= 	cub3D_bonus
 
-SRCS			= 	${shell find ./sources -name "*.c"}
+SRCS			= 	${shell find ./sources/main.c ./sources/parser ./sources/render ./sources/utils -name "*.c"}
+SR_B			= 	${shell find ./sources/main_bonus.c ./sources/parser ./sources/render ./sources/utils -name "*.c"}
 HDRS			=	${shell find ./includes -name "*.h"}
 
 INCS		=		-I./includes/ -I./minilibx/ -I./libft/
@@ -25,6 +27,7 @@ $(LIBFT)		:	./libft/*.c ./libft/*.h
 					@$(MAKE) clean -C ./libft
 
 OBJS			=	$(patsubst %.c, %.o, $(SRCS))
+OBJS_B			=	$(patsubst %.c, %.o, $(SR_B))
 
 %.o:				%.c
 					$(GCC) -c -g $< -o $@ $(INCS)
@@ -36,12 +39,23 @@ $(NAME)			:	$(OBJS) $(HDRS) $(LIBFT)
 					@echo "\n$(NAME): $(GREEN)object files were created$(RESET)"
 					@echo "$(NAME): $(GREEN)project was created$(RESET)\n"
 
+bonus			:	$(NAME_BONUS) $(LIBFT)
+
+$(NAME_BONUS)	:	$(OBJS_B) $(HDRS) $(LIBFT)
+					$(MAKE) -C minilibx/
+					cp minilibx/libmlx.dylib .
+					@$(GCC) $(OBJS_B) -o $(NAME_BONUS) $(LIBFT)
+					@echo "\n$(NAME): $(GREEN)object files were created$(RESET)"
+					@echo "$(NAME): $(GREEN)project was created$(RESET)\n"
+
 clean			:
 					@rm -rvf $(OBJS)
+					@rm -rvf $(OBJS_B)
 					@echo "\n$(NAME): $(BLUE)object files were deleted$(RESET)\n"
 
 fclean			:	clean
 					@rm -f $(NAME)
+					@rm -f $(NAME_BONUS)
 					@echo "$(NAME): $(PURPLE)project remake done$(RESET)\n"
 
 re				:	fclean all

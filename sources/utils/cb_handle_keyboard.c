@@ -1,6 +1,6 @@
 #include "../../includes/cub3d.h"
 
-static void	turn_right(t_m *data)
+static void	turn_right(t_main *data)
 {
 	float	prev_dir_x;
 	float	prev_plane_x;
@@ -18,7 +18,7 @@ static void	turn_right(t_m *data)
 		+ data->plr->plane_y * cos(ROTATION_STEP);
 }
 
-static void	turn_left(t_m *data)
+static void	turn_left(t_main *data)
 {
 	float	prev_dir_x;
 	float	prev_plane_x;
@@ -36,7 +36,7 @@ static void	turn_left(t_m *data)
 		+ data->plr->plane_y * cos(-ROTATION_STEP);
 }
 
-void	cb_handle_arrows(int key, t_m *data)
+void	cb_handle_arrows(int key, t_main *data)
 {
 	if (key == ARROW_LEFT)
 	{
@@ -50,7 +50,7 @@ void	cb_handle_arrows(int key, t_m *data)
 	}
 }
 
-void	cb_handle_ws_keys(int key, t_m *data)
+void	cb_handle_ws_keys(int key, t_main *data)
 {
 	if (key == MAIN_PAD_W)
 	{
@@ -74,7 +74,7 @@ void	cb_handle_ws_keys(int key, t_m *data)
 	}
 }
 
-void	cb_handle_ad_keys(int key, t_m *data)
+void	cb_handle_ad_keys(int key, t_main *data)
 {
 	if (key == MAIN_PAD_A)
 	{

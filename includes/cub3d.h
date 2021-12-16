@@ -191,37 +191,37 @@ typedef struct s_main
 	t_lodev		*lodev;
 	t_txrs		*txrs;
 	int			zoom;
-}	t_m;
+}	t_main;
 
 //utils
 int			get_next_line(int fd, char **line);
 void		*cb_malloc_x(size_t size);
-void		ft_init_player(t_m *data);
+void		ft_init_player(t_main *data);
 float		ft_degree_to_ratio(float degree);
-void		ft_init_struct(t_m *data);
+void		ft_init_struct(t_main *data);
 void		ft_init_map(t_map *m);
 
 //rendering
-void		cb_rendering(t_m *data);
-void		cb_render_cub(t_m *data);
-void		cb_render_mini_map(t_m *data);
-void		cb_render_floor_ceiling(t_m *data);
+void		cb_rendering(t_main *data);
+void		cb_render_cub(t_main *data);
+void		cb_render_mini_map(t_main *data);
+void		cb_render_floor_ceiling(t_main *data);
 void		cb_mlx_pixel_put(t_win *win, int x, int y, int color);
 
 //cb_calculate
-void		ft_calc_ray_position_len_direction(t_m *data, int x_line);
-void		ft_calc_step_and_side_dist(t_m *data);
-void		check_which_wall_was_hitted(t_m *data);
-void		ft_calc_lowest_and_highest_pixel(t_m *data);
-void		ft_calc_value_of_wall_x(t_m *data);
+void		ft_calc_ray_position_len_direction(t_main *data, int x_line);
+void		ft_calc_step_and_side_dist(t_main *data);
+void		check_which_wall_was_hitted(t_main *data);
+void		ft_calc_lowest_and_highest_pixel(t_main *data);
+void		ft_calc_value_of_wall_x(t_main *data);
 
 //events & keys
-int			cb_terminate(t_m *data);
-int			cb_handle_events(t_m *data);
-int			cb_handle_keyboard(int key, t_m *data);
-void		cb_handle_ad_keys(int key, t_m *data);
-void		cb_handle_ws_keys(int key, t_m *data);
-void		cb_handle_arrows(int key, t_m *data);
+int			cb_terminate(t_main *data);
+int			cb_handle_events(t_main *data);
+int			cb_handle_keyboard(int key, t_main *data);
+void		cb_handle_ad_keys(int key, t_main *data);
+void		cb_handle_ws_keys(int key, t_main *data);
+void		cb_handle_arrows(int key, t_main *data);
 
 //parsing
 void		ft_lstdelone(t_lst *lst);
@@ -230,7 +230,9 @@ void		ft_lstadd_back(t_lst **head, t_lst *new);
 t_lst		*ft_lstnew(char *content);
 void		ft_error(char *str);
 int			cb_strchr(const char *str, int c);
-int			parsing(int ac, char *file, t_m *all);
+int			parsing(int ac, char *file, t_main *all);
+void		init_map(t_map *m);
+void		init_player(t_main *data);
 int			check_wall(char **map, int y, int x);
 int			check_double_player(t_map *m);
 void		check_map(t_map *m);
@@ -238,8 +240,8 @@ void		check_simbol(t_lst *map_l);
 int			check_file(int ac, char *file);
 void		get_tex_and_color(char *str, t_map *m);
 void		find_player(t_plr *plr, t_map *m);
-void		setup_texture(t_m *all, t_txr *txr, char *file);
-void		open_texture(t_m *all);
+void		setup_texture(t_main *all, t_txr *txr, char *file);
+void		open_texture(t_main *all);
 void		make_map(t_map *data);
 int			create_trgb(int t, int r, int g, int b);
 int			cb_strchr(const char *str, int c);

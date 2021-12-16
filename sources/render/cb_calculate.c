@@ -1,6 +1,6 @@
 #include "../../includes/cub3d.h"
 
-void	ft_calc_ray_position_len_direction(t_m *data, int x_line)
+void	ft_calc_ray_position_len_direction(t_main *data, int x_line)
 {
 	data->lodev->camera_x = 2 * (float)x_line / data->win->win_width - 1;
 	data->lodev->ray_dir_x = data->plr->dir_x \
@@ -13,7 +13,7 @@ void	ft_calc_ray_position_len_direction(t_m *data, int x_line)
 	data->lodev->delta_dist_y = fabsf(1 / data->lodev->ray_dir_y);
 }
 
-void	ft_calc_step_and_side_dist(t_m *data)
+void	ft_calc_step_and_side_dist(t_main *data)
 {
 	if (data->lodev->ray_dir_x < 0)
 	{
@@ -41,7 +41,7 @@ void	ft_calc_step_and_side_dist(t_m *data)
 	}
 }
 
-void	check_which_wall_was_hitted(t_m *data)
+void	check_which_wall_was_hitted(t_main *data)
 {
 	data->lodev->flag_hit = 0;
 	while (data->lodev->flag_hit == 0)
@@ -69,7 +69,7 @@ void	check_which_wall_was_hitted(t_m *data)
 				- data->lodev->delta_dist_y;
 }
 
-void	ft_calc_lowest_and_highest_pixel(t_m *data)
+void	ft_calc_lowest_and_highest_pixel(t_main *data)
 {
 	t_lodev		*l;
 
@@ -82,7 +82,7 @@ void	ft_calc_lowest_and_highest_pixel(t_m *data)
 		l->draw_end = data->win->win_height - 1;
 }
 
-void	ft_calc_value_of_wall_x(t_m *data)
+void	ft_calc_value_of_wall_x(t_main *data)
 {
 	t_lodev		*l;
 

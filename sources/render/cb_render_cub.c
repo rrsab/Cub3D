@@ -1,6 +1,6 @@
 #include "../../includes/cub3d.h"
 
-static void	draw_line(t_m *data, int x)
+static void	draw_line(t_main *data, int x)
 {
 	int	color;
 	int	tex_y;
@@ -28,7 +28,7 @@ static void	draw_line(t_m *data, int x)
 	}
 }
 
-void	cb_render_cub(t_m *data)
+void	cb_render_cub(t_main *data)
 {
 	int		x;
 

@@ -1,7 +1,7 @@
 #include "./../includes/cub3d.h"
 
 
-void	cb_rendering(t_m *data)
+void	cb_rendering(t_main *data)
 {
 	cb_render_floor_ceiling(data);
 	cb_render_cub(data);
@@ -11,7 +11,7 @@ void	cb_rendering(t_m *data)
 
 int	main(int argc, char **argv)
 {
-	t_m	data;
+	t_main	data;
 	t_map	map;
 	t_win	win;
 	t_plr	plr;

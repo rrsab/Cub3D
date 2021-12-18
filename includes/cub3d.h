@@ -7,9 +7,10 @@
 # include <string.h>
 # include <sys/errno.h>
 # include <stdbool.h>
+# include <fcntl.h>
 //# include "../inc/colors.h"
 //# include "../inc/macos_keyboard.h"
-# include "../libft/libft.h"
+# include "../libft/inc/libft.h"
 # include "../minilibx/mlx.h"
 
 # define WIN_WIDTH 800
@@ -57,23 +58,17 @@ typedef struct s_txrs
 	t_txr	*east;
 }	t_txrs;
 
-typedef struct s_lst
-{
-	char			*val;
-	struct s_lst	*next;
-}			t_lst;
-
 typedef struct s_map
 {
 	char		**map;
 	char		**xpm;
-	t_lst		*map_l;
+	t_list		*map_list;
 	int			floor;
 	int			ceiling;
 	int			width;
 	int			height;
-	bool		param_done;
-	bool		map_done;
+	bool		param_match;
+	bool		map_match;
 }	t_map;
 
 typedef struct s_lodev
@@ -104,7 +99,7 @@ typedef struct s_lodev
 typedef struct s_main
 {
 	t_win		*win;
-	t_plr		*plr;
+	t_plr		*player;
 	t_map		*map;
 	t_lodev		*lodev;
 	t_txrs		*txrs;

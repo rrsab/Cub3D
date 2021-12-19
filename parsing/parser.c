@@ -37,12 +37,23 @@ void	parsing(int argc, char *file, t_main *data)
 	init_player(data);
 	parsing_param(fd, data->map);
 	close(fd);
+	map_creation(data->map);
+	if (!data->map->param_match)
+		ft_error("map is not valid\n");
+	find_player(data->player, data->map);
 }
 
 int	main(int argc, char **argv)
 {
-	t_main	data;
+	t_map		map;
+	t_player	player;
+	t_main		data;
+
+	data.map = &map;
+	data.player = &player;
 	parsing(argc, argv[1], &data);
+	while (1);
+
 	return (0);
 }
 

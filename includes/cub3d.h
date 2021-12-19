@@ -29,7 +29,7 @@ typedef struct s_win
 	int			endian;
 }	t_win;
 
-typedef struct s_plr
+typedef struct s_player
 {
 	float		x;
 	float		y;
@@ -38,7 +38,7 @@ typedef struct s_plr
 	float		dir_x;
 	float		dir_y;
 	float		angle;
-}	t_plr;
+}	t_player;
 
 typedef struct s_txr
 {
@@ -99,7 +99,7 @@ typedef struct s_lodev
 typedef struct s_main
 {
 	t_win		*win;
-	t_plr		*player;
+	t_player	*player;
 	t_map		*map;
 	t_lodev		*lodev;
 	t_txrs		*txrs;

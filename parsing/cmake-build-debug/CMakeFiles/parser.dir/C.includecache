@@ -35,14 +35,16 @@ fcntl.h
 -
 string.h
 -
+stdio.h
+-
 
 /Users/gtyene/Cub3D/minilibx/mlx.h
 
-/Users/gtyene/Cub3D/parsing/check.c
+/Users/gtyene/Cub3D/parsing/parser.h
+
+/Users/gtyene/Cub3D/parsing/player.c
 ../includes/cub3d.h
 /Users/gtyene/Cub3D/includes/cub3d.h
 parser.h
-/Users/gtyene/Cub3D/parsing/parser.h
-
 /Users/gtyene/Cub3D/parsing/parser.h
 

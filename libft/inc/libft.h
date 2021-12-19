@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <string.h>
+# include <stdio.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
@@ -70,8 +71,13 @@ void	ft_free_array(char **array);
 void	ft_putnbr_uns_fd(unsigned int n, int fd);
 int		ft_strcmp(const char *s1, const char *s2);
 
+void	ft_error(char *str);
+void	*ft_malloc_x(size_t size);
+
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(char *val);
+void	ft_lstclear(t_list **list);
+void	ft_lstdelone(t_list *list);
 
 #endif

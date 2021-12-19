@@ -20,8 +20,9 @@ static int	get_color(char *str)
 	i = -1;
 	while (++i < 3)
 	{
-		if (str_isdigit(array[i]))
+		if (!str_isdigit(array[i]))
 			ft_error("not valid color code\n");
+		color[i] = ft_atoi(array[i]);
 	}
 	ft_free_array(array);
 	free(rgb);

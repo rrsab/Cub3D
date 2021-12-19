@@ -26,7 +26,9 @@ SRCS			=	./src/ft_strlen.c		./src/ft_strncmp.c		./src/ft_strlcpy.c \
 					./src/ft_split.c		./src/ft_putnchar.c		./src/ft_putnbr_uns_fd.c \
 					./src/ft_strrev.c		./src/ft_free_array.c	./src/ft_malloc_int_array.c \
 					./src/get_next_line.c	./src/ft_strcmp.c \
-					./src/ft_lstadd_back.c	./src/ft_lstlast.c		./src/ft_lstnew.c
+					./src/ft_lstadd_back.c	./src/ft_lstlast.c		./src/ft_lstnew.c	\
+					./src/ft_lstclear.c		./src/ft_lstdelone.c	\
+					./src/ft_malloc_x.c		./src/ft_error.c
 
 HEADERS			=	./inc/libft.h
 

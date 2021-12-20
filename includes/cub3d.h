@@ -10,7 +10,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include "../libft/libft.h"
-# include "../minilibx/mlx.h"
+# include "mlx.h"
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
@@ -245,7 +245,7 @@ void		open_texture(t_main *all);
 void		make_map(t_map *data);
 int			create_trgb(int t, int r, int g, int b);
 int			cb_strchr(const char *str, int c);
-uint32_t	color_pixel_texture(t_txr *img, int i, int j);
+unsigned int	color_pixel_texture(t_txr *img, int i, int j);
 int			cb_isdigit_str(char *str);
 
 #endif

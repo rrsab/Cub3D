@@ -40,7 +40,7 @@ typedef struct s_player
 	float		angle;
 }	t_player;
 
-typedef struct s_txr
+typedef struct s_texture
 {
 	void	*img;
 	char	*addr;
@@ -48,15 +48,15 @@ typedef struct s_txr
 	int		size_line;
 	int		endian;
 	int		**matrix;
-}				t_txr;
+}				t_texture;
 
-typedef struct s_txrs
+typedef struct s_textures
 {
-	t_txr	*north;
-	t_txr	*south;
-	t_txr	*west;
-	t_txr	*east;
-}	t_txrs;
+	t_texture	*north;
+	t_texture 	*south;
+	t_texture 	*west;
+	t_texture 	*east;
+}	t_textures;
 
 typedef struct s_map
 {
@@ -102,8 +102,31 @@ typedef struct s_main
 	t_player	*player;
 	t_map		*map;
 	t_lodev		*lodev;
-	t_txrs		*txrs;
+	t_textures	*textures;
 	int			zoom;
 }	t_main;
+
+int		count_of_symbols(char *str, char symbol);
+bool	str_isdigit(char *str);
+
+int		check_file(int argc, char *file);
+void	check_map_symbols(t_list *map_list);
+void	check_map(t_map *map);
+
+void	init_map(t_map *data);
+void	map_creation(t_map *map);
+
+void 	init_player(t_main *data);
+void	find_player(t_player *player, t_map *map);
+
+void	get_text_and_color(char *str, t_map *map);
+
+void	parsing(int argc, char *file, t_main *data);
+
+void	init_mlx(t_win *win);
+void	init_lodev_struct(t_lodev *lodev);
+void	init_main_struct(t_main *data);
+
+void	get_textures(t_main *data);
 
 #endif

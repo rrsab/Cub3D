@@ -1,3 +1,0 @@
-/Users/gtyene/Cub3D/parsing/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/gtyene/Cub3D/parsing/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/gtyene/Cub3D/parsing/cmake-build-debug/CMakeFiles/parser.dir

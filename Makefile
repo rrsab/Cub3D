@@ -63,9 +63,6 @@ LFLAGS			=	-L ./libft -lft
 
 MINILIBX_A_DIR 		=	$(MINILIBX_DIR)/$(MLX_A)
 
-#RDL_INC			=	-I ~/.brew/opt/readline/include/
-#RDL				=	-lreadline -L ~/.brew/opt/readline/lib $(RDL_INC)
-
 all				:	$(NAME) $(LIBFT)
 
 $(LIBFT)		:	./libft/*.c ./libft/*.h
@@ -86,7 +83,7 @@ $(NAME)			:	$(OBJS) $(HDRS) $(LIBFT)
 					cp $(MINILIBX_A_DIR) $(MLX_A)
 					#cp $(MINILIBX_A_DIR) $(MLX_A)
 #$(CC) $(FLAGS)  -I$(HEADER) $(OBJS) -L. $(LIB_NAME)  $(MINILIBX_A_DIR) $(OPENGL)  -o $(NAME_PROJECT)
-					@$(GCC) $(OBJS) $(OPENGL) -o $(NAME) $(LIBFT)
+					@$(GCC) $(OBJS) $(OPENGL) -o $(NAME) -L. $(LIBFT)
 					@echo "\n$(NAME): $(GREEN)object files were created$(RESET)"
 					@echo "$(NAME): $(GREEN)project was created$(RESET)\n"
 
@@ -95,9 +92,12 @@ $(NAME)			:	$(OBJS) $(HDRS) $(LIBFT)
 bonus			:	$(NAME_BONUS) $(LIBFT)
 
 $(NAME_BONUS)	:	$(OBJS_B) $(HDRS) $(LIBFT)
+					$(MAKE)  -C $(LIB_MLX)
 					#$(MAKE) -C minilibx_mac/
 					#cp minilibx_mac/libmlx.dylib .
-					@$(GCC) $(OBJS_B) $(OPENGL) -o $(NAME_BONUS) $(LIBFT)
+					cp $(MINILIBX_A_DIR) $(MLX_A)
+					@$(GCC) $(OBJS_B) $(OPENGL) -o $(NAME_BONUS) -L. $(LIBFT)
+					#@$(GCC) $(OBJS_B) $(OPENGL) -o $(NAME_BONUS) $(LIBFT)
 					@echo "\n$(NAME): $(GREEN)object files were created$(RESET)"
 					@echo "$(NAME): $(GREEN)project was created$(RESET)\n"
 

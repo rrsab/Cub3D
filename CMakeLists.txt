@@ -20,7 +20,7 @@ FILE(GLOB SRC
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -Wall -Wextra -Werror")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -L ${CMAKE_CURRENT_SOURCE_DIR}/minilibx_opengl/ -framework OpenGL -framework AppKit")
-add_executable(Cub3D ${SRC} sources/render/cb_calculate.c)
+add_executable(Cub3D ${SRC} sources/render/cb_calculate.c includes/keycode.h)
 
 include_directories(Cub3D ${CMAKE_CURRENT_SOURCE_DIR}/includes/)			# Расположение заголовочных файлов
 target_link_libraries (Cub3D ${CMAKE_CURRENT_SOURCE_DIR}/libft/libft.a) # Линковка программы с библиотекой

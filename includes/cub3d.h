@@ -9,12 +9,13 @@
 # include <stdbool.h>
 # include <fcntl.h>
 //# include "../inc/colors.h"
-//# include "../inc/macos_keyboard.h"
+# include "macos_keyboard.h"
 # include "../libft/inc/libft.h"
 # include "../minilibx/mlx.h"
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
+# define STEP 0.2f
 
 typedef struct s_win
 {
@@ -128,5 +129,11 @@ void	init_lodev_struct(t_lodev *lodev);
 void	init_main_struct(t_main *data);
 
 void	get_textures(t_main *data);
+
+void	rendering_floor_and_ceiling(t_main *data);
+void	rendering_environment(t_main *data);
+void	rendering(t_main *data);
+
+void	handler_events(t_main *data);
 
 #endif

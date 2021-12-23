@@ -18,7 +18,8 @@ include_directories(minilibx)
 file (GLOB SOURCES
         "sources/*.c"
         "sources/parser/*c"
-        "sources/rendering/*.c")
+        "sources/rendering/*.c"
+        "sources/events/*.c")
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 

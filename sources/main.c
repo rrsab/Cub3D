@@ -1,5 +1,13 @@
 #include "cub3d.h"
 
+void	rendering(t_main *data)
+{
+	rendering_floor_and_ceiling(data);
+	rendering_environment(data);
+	mlx_put_image_to_window(data->win->mlx_ptr, data->win->win_ptr, \
+							data->win->img_ptr, 0, 0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_main		data;
@@ -14,9 +22,9 @@ int	main(int argc, char **argv)
 	data.lodev = &lodev;
 	parsing(argc, argv[1], &data);
 	init_main_struct(&data);
-//	cb_rendering(&data);
-//	cb_handle_events(&data);
-//	mlx_loop(data.win->mlx_ptr);
+	rendering(&data);
+	handler_events(&data);
+	mlx_loop(data.win->mlx_ptr);
 }
 
 void	init_mlx(t_win *win)
@@ -65,5 +73,4 @@ void	init_main_struct(t_main *data)
 	data->textures = ft_malloc_x(sizeof(t_textures));
 	init_lodev_struct(data->lodev);
 	get_textures(data);
-	rendering(&data);
 }

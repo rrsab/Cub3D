@@ -40,5 +40,4 @@ void	parsing(int argc, char *file, t_main *data)
 	if (!data->map->param_match)
 		ft_error("map is not valid\n");
 	find_player(data->player, data->map);
-	printf("I love you, baby!\n");
 }

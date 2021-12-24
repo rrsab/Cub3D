@@ -9,9 +9,10 @@
 # include <stdbool.h>
 # include <fcntl.h>
 //# include "../inc/colors.h"
-# include "macos_keyboard.h"
+# include "keycode.h"
 # include "../libft/inc/libft.h"
-# include "../minilibx/minilibx_mac/mlx.h"
+# include "mlx.h"
+
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600

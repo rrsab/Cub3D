@@ -5,7 +5,7 @@ project(cub3D)
 set (CMAKE_C_STANDARD 99)
 
 #set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror -Wextra -O2")
-set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -L ${CMAKE_CURRENT_SOURCE_DIR}/minilibx_opengl/ -framework OpenGL -framework AppKit")
+set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D DARWIN=1 -L ${CMAKE_CURRENT_SOURCE_DIR}/minilibx_opengl/ -framework OpenGL -framework AppKit")
 
 set (CMAKE_C_COMPILER gcc)
 

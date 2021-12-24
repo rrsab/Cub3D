@@ -1,6 +1,11 @@
 #include "cub3d.h"
 
-void	handler_ad_keys(int key, t_main *data, t_player *player, char **map)
+//void	handler_arrows_keys(int key, t_main *data)
+//{
+//
+//}
+
+void	handler_ad_keys(int key, t_player *player, char **map)
 {
 	if (key == MAIN_PAD_A)
 	{
@@ -8,7 +13,6 @@ void	handler_ad_keys(int key, t_main *data, t_player *player, char **map)
 			player->x += player->dir_y * STEP;
 		if (map[(int)(player->y - player->dir_x * STEP)][(int)player->x] != '1')
 			player->y -= player->dir_x * STEP;
-		rendering(data);
 	}
 	else if (key == MAIN_PAD_D)
 	{
@@ -16,11 +20,10 @@ void	handler_ad_keys(int key, t_main *data, t_player *player, char **map)
 			player->x -= player->dir_y * STEP;
 		if (map[(int)(player->y + player->dir_x * STEP)][(int)player->x] != '1')
 			player->y += player->dir_x * STEP;
-		rendering(data);
 	}
 }
 
-void	handler_ws_keys(int key, t_main *data, t_player *player, char **map)
+void	handler_ws_keys(int key, t_player *player, char **map)
 {
 	if (key == MAIN_PAD_W)
 	{
@@ -28,7 +31,6 @@ void	handler_ws_keys(int key, t_main *data, t_player *player, char **map)
 			player->x += player->dir_x * STEP;
 		if (map[(int)(player->y + player->dir_y * STEP)][(int)player->x] != '1')
 			player->y += player->dir_y * STEP;
-		rendering(data);
 	}
 	else if (key == MAIN_PAD_S)
 	{
@@ -36,7 +38,6 @@ void	handler_ws_keys(int key, t_main *data, t_player *player, char **map)
 			player->x -= player->dir_x * STEP;
 		if (map[(int)(player->y - player->dir_y * STEP)][(int)player->x] != '1')
 			player->y -= player->dir_y * STEP;
-		rendering(data);
 	}
 }
 
@@ -51,12 +52,12 @@ int	handler_keyboard(int key, t_main *data)
 	if (key == MAIN_PAD_ESC)
 		exit_cub3D(data);
 	else if (key == MAIN_PAD_W || key == MAIN_PAD_S)
-		handler_ws_keys(key, data, data->player, data->map->map);
+		handler_ws_keys(key, data->player, data->map->map);
 	else if (key == MAIN_PAD_A || key == MAIN_PAD_D)
-		handler_ad_keys(key, data, data->player, data->map->map);
+		handler_ad_keys(key, data->player, data->map->map);
 //	else if (key == ARROW_RIGHT || key == ARROW_LEFT)
 //		hanler_arrows_keys(key, data->player, data->map->map);
-//	rendering(data);
+	rendering(data);
 	return (0);
 }
 

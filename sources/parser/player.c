@@ -46,11 +46,11 @@ void	find_player(t_player *player, t_map *map)
 		x = -1;
 		while (++x < map->width)
 		{
-			if (map->map[y][x] == 'N' || map->map[y][x] == 'N'
+			if (map->map[y][x] == 'N' || map->map[y][x] == 'S'
 				|| map->map[y][x] == 'W' || map->map[y][x] == 'E')
 			{
-				player->y = (float)y + 0.0f;
-				player->x = (float)x + 0.0f;
+				player->y = (float)y + 0.1f;
+				player->x = (float)x + 0.1f;
 				set_player_POV(player, map->map[y][x]);
 				return ;
 			}

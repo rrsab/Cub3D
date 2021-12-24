@@ -16,6 +16,7 @@
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
 # define STEP 0.2f
+# define ANGLE 0.11f
 
 typedef struct s_win
 {

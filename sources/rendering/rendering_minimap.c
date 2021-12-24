@@ -28,6 +28,24 @@
 
 #endif
 
+static void	draw_player(t_main *data, int start_x, int start_y, int color)
+{
+	int	x;
+	int	y;
+
+	y = start_y;
+	while (y < data->zoom / 4 + start_y)
+	{
+		x = start_x;
+		while (x < data->zoom / 4 + start_x)
+		{
+			ft_mlx_pixel_put(data->win, x, y, color);
+			x++;
+		}
+		y++;
+	}
+}
+
 static void	draw_square(t_main * data, int start_x, int start_y, int color)
 {
 	int	x;
@@ -39,8 +57,10 @@ static void	draw_square(t_main * data, int start_x, int start_y, int color)
 		x = start_x;
 		while (x < data->zoom + start_x)
 		{
-			ft_mlx_pix
+			ft_mlx_pixel_put(data->win, x, y, color);
+			x++;
 		}
+		y++;
 	}
 }
 
@@ -56,9 +76,9 @@ static void	draw_minimap(t_main *data, t_map *map)
 		while (x < map->width && map->map[y][x] != '\0')
 		{
 			if (map->map[y][x] == '1')
-				draw_square(data, x * data->zoom, y * data->zoom, JAFFA);
+				draw_square(data, x * data->zoom, y * data->zoom, BLACK);
 			else if (map->map[y][x] == '0' || ft_isalpha(data->map->map[y][x]))
-				draw_square(data, x * data->zoom, y * data->zoom, FLAMINGO);
+				draw_square(data, x * data->zoom, y * data->zoom, AQUA);
 			x++;
 		}
 		y++;
@@ -67,7 +87,10 @@ static void	draw_minimap(t_main *data, t_map *map)
 
 void	rendering_minimap(t_main *data)
 {
-	 draw_minimap(data, data->map);
-//	 draw_player
+	int	zoom;
+
+	zoom = data->zoom;
+	draw_minimap(data, data->map);
+	draw_player(data, zoom * data->player->x, zoom * data->player->y, TEAL);
 }
 

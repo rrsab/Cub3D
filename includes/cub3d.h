@@ -131,6 +131,7 @@ void	init_main_struct(t_main *data);
 
 void	get_textures(t_main *data);
 
+void	ft_mlx_pixel_put(t_win *win, int x, int y, int color);
 void	rendering_floor_and_ceiling(t_main *data);
 void	rendering_environment(t_main *data);
 void	rendering(t_main *data);

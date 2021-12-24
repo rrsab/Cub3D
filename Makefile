@@ -41,23 +41,14 @@ endif
 NAME			= 	cub3D
 NAME_BONUS		= 	cub3D_bonus
 
-SRCS			= 	${shell find ./sources/main.c ./sources/parser ./sources/render ./sources/utils -name "*.c"}
-SR_B			= 	${shell find ./sources/main_bonus.c ./sources/parser ./sources/render ./sources/utils -name "*.c"}
+SRCS			= 	${shell find ./sources/main.c ./sources/parser ./sources/rendering ./sources/events -name "*.c"}
+SR_B			= 	${shell find ./sources/main.c ./sources/parser ./sources/rendering ./sources/events -name "*.c"}
 HDRS			=	${shell find ./includes -name "*.h"}
 
 INCS		=		-I./includes/ -I/usr/include -I./minilibx-linux/ -I./libft/
 GCC				=	gcc $(FLAGS)
 
-#$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
-#$(CC) $(OBJ) -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
-
 LIBFT			=	./libft/libft.a $(MLX_A)
-#./libmlx.dylib ./libft/libft.a
-#	MINILIBX_DIR = minilibx_mac/minilbx_linux
-#	LIB_MLX = ./minilibx_mac/minilbx_linux
-#OPENGL 			= -lm -lbsd -lX11 -lXext
-#	MLX_A = libmlx_Linux.a
-#GCC				+= -D LINUX=1
 
 LFLAGS			=	-L ./libft -lft
 
@@ -65,7 +56,7 @@ MINILIBX_A_DIR 		=	$(MINILIBX_DIR)/$(MLX_A)
 
 all				:	$(NAME) $(LIBFT)
 
-$(LIBFT)		:	./libft/*.c ./libft/*.h
+$(LIBFT)		:	./libft/src/*.c ./libft/inc/*.h
 					@$(MAKE) -C ./libft/
 					@$(MAKE) clean -C ./libft
 

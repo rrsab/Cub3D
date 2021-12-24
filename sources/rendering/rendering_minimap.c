@@ -85,6 +85,32 @@ static void	draw_minimap(t_main *data, t_map *map)
 	}
 }
 
+void	cast_rays(t_main *data, t_player *player, t_map *map)
+{
+	int			zoom;
+	t_player	ray;
+	float		start;
+	float		end;
+
+	zoom = data->zoom;
+	ray = *player;
+	start = player->angle - ft_degree_to_ratio(FOV) / 2;
+	end = player->angle + ft_degree_to_ratio(FOV) / 2;
+	while (start <= end)
+	{
+		ray.x = player->x * data->zoom;
+		ray.y = player->y * data->zoom;
+		while (map->map[(int)(ray.y / zoom)][(int)(ray.x / zoom)] != '1')
+		{
+			ray.x += cos(start);
+			ray.y += sin(start);
+			if (map->map[(int)(ray.y / zoom)][(int)(ray.x / zoom)] != '1')
+				ft_mlx_pixel_put(data->win, ray.x, ray.y, RED);
+		}
+		start += 2 / (acos(-1.0) * data->win->win_width);
+	}
+}
+
 void	rendering_minimap(t_main *data)
 {
 	int	zoom;
@@ -92,5 +118,6 @@ void	rendering_minimap(t_main *data)
 	zoom = data->zoom;
 	draw_minimap(data, data->map);
 	draw_player(data, zoom * data->player->x, zoom * data->player->y, TEAL);
+	cast_rays(data, data->player, data->map);
 }
 

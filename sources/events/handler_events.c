@@ -9,9 +9,10 @@ void	handler_arrows_keys(int key, t_player *plr, t_main *data)
 	dir = 1;
 	if (key == ARROW_LEFT)
 		dir = -1;
+	plr->angle += dir * ANGLE;
 	prev_dir_x = plr->dir_x;
 	prev_plane_x = plr->plane_x;
-	plr->dir_x = plr->dir_x * cos(ANGLE) - plr->dir_y * sin(dir *ANGLE);
+	plr->dir_x = plr->dir_x * cos(ANGLE) - plr->dir_y * sin(dir * ANGLE);
 	plr->dir_y = prev_dir_x * sin(dir * ANGLE) + plr->dir_y * cos(ANGLE);
 	plr->plane_x = plr->plane_x * cos(ANGLE) - plr->plane_y * sin(dir * ANGLE);
 	plr->plane_y = prev_plane_x * sin(dir * ANGLE) + plr->plane_y * cos(ANGLE);

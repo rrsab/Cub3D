@@ -11,7 +11,24 @@ void 	init_player(t_main *data)
 	data->player->angle = 0.0F;
 }
 
-void	set_player_POV(t_player *player, char c)
+float	ft_degree_to_ratio(float degree)
+{
+	return (degree * acos(-1.0) / 180);
+}
+
+static void	set_begin_angle(t_player *player, char c)
+{
+	if (c == 'N')
+		player->angle = ft_degree_to_ratio(270);
+	else if (c == 'S')
+		player->angle = ft_degree_to_ratio(90);
+	else if (c == 'W')
+		player->angle = ft_degree_to_ratio(180);
+	else if (c == 'E')
+		player->angle = ft_degree_to_ratio(0);
+}
+
+static void	set_player_POV(t_player *player, char c)
 {
 	if (c == 'N')
 	{
@@ -33,6 +50,7 @@ void	set_player_POV(t_player *player, char c)
 		player->dir_x = 1.0;
 		player->plane_y = -0.66;
 	}
+	set_begin_angle(player, c);
 }
 
 void	find_player(t_player *player, t_map *map)

@@ -11,12 +11,13 @@
 //# include "../inc/colors.h"
 # include "macos_keyboard.h"
 # include "../libft/inc/libft.h"
-# include "../minilibx/mlx.h"
+# include "../minilibx/minilibx_mac/mlx.h"
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
 # define STEP 0.2f
 # define ANGLE 0.11f
+# define FOV 45
 
 typedef struct s_win
 {
@@ -137,6 +138,7 @@ void	rendering_environment(t_main *data);
 void	rendering(t_main *data);
 
 void	handler_events(t_main *data);
+float	ft_degree_to_ratio(float degree);
 void	rendering_minimap(t_main *data);
 
 #endif

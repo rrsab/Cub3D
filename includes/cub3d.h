@@ -136,5 +136,6 @@ void	rendering_environment(t_main *data);
 void	rendering(t_main *data);
 
 void	handler_events(t_main *data);
+void	rendering_minimap(t_main *data);
 
 #endif

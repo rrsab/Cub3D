@@ -4,6 +4,7 @@ void	rendering(t_main *data)
 {
 	rendering_floor_and_ceiling(data);
 	rendering_environment(data);
+	rendering_minimap(data);
 	mlx_put_image_to_window(data->win->mlx_ptr, data->win->win_ptr, \
 							data->win->img_ptr, 0, 0);
 }

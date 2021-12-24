@@ -2,7 +2,7 @@
 
 void	init_map(t_map *map)
 {
-//	int	i;
+	int	i;
 
 	map->param_match = false;
 	map->map_match = false;
@@ -12,13 +12,12 @@ void	init_map(t_map *map)
 	map->width = 0;
 	map->height = 0;
 	map->map_list = NULL;
-	map->xpm = ft_calloc(4, sizeof(char *));
-//	map->xpm = malloc(sizeof(char *) * 4);
-//	if (!map->xpm)
-//		ft_error(NULL);
-//	i = -1;
-//	while (++i < 4)
-//		map->xpm[i] = NULL;
+	map->xpm = malloc(sizeof(char *) * 4);
+	if (!map->xpm)
+		ft_error(NULL);
+	i = -1;
+	while (++i < 4)
+		map->xpm[i] = NULL;
 }
 
 static void	get_size_of_map(t_map **map, t_list *map_list)

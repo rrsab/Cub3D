@@ -77,6 +77,28 @@ void	draw_line(t_main *data, t_lodev *lodev, int x)
 	}
 }
 
+static void	set_aim(t_main *data, int height, int width)
+{
+	int x;
+	int y;
+
+	y = 0;
+	while (y < 8)
+	{
+		x = 0;
+		while (x < 8)
+		{
+			ft_mlx_pixel_put(data->win, width + y, height + x, GREEN);
+			ft_mlx_pixel_put(data->win, width + y, height - x, GREEN);
+			ft_mlx_pixel_put(data->win, width - y, height + x, GREEN);
+			ft_mlx_pixel_put(data->win, width - y, height - x, GREEN);
+
+			x++;
+		}
+		y++;
+	}
+}
+
 void	rendering_environment(t_main *data)
 {
 	int	x;
@@ -102,4 +124,5 @@ void	rendering_environment(t_main *data)
 		draw_line(data, data->lodev, x);
 		x++;
 	}
+	set_aim(data, data->win->win_height / 2, data->win->win_width / 2);
 }

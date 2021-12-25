@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-void 	init_player(t_main *data)
+void	init_player(t_main *data)
 {
 	data->player->x = 0.0F;
 	data->player->y = 0.0F;
@@ -9,11 +9,6 @@ void 	init_player(t_main *data)
 	data->player->dir_x = 0.0F;
 	data->player->dir_y = 0.0F;
 	data->player->angle = 0.0F;
-}
-
-float	ft_degree_to_ratio(float degree)
-{
-	return (degree * acos(-1.0) / 180);
 }
 
 static void	set_begin_angle(t_player *player, char c)
@@ -28,7 +23,7 @@ static void	set_begin_angle(t_player *player, char c)
 		player->angle = ft_degree_to_ratio(0);
 }
 
-static void	set_player_POV(t_player *player, char c)
+static void	set_player_pov(t_player *player, char c)
 {
 	if (c == 'N')
 	{
@@ -58,20 +53,22 @@ void	find_player(t_player *player, t_map *map)
 	int	y;
 	int	x;
 
-	y = -1;
-	while (++y < map->height)
+	y = 0;
+	while (map->map[y])
 	{
-		x = -1;
-		while (++x < map->width)
+		x = 0;
+		while (map->map[y][x])
 		{
 			if (map->map[y][x] == 'N' || map->map[y][x] == 'S'
 				|| map->map[y][x] == 'W' || map->map[y][x] == 'E')
 			{
 				player->y = (float)y + 0.1f;
 				player->x = (float)x + 0.1f;
-				set_player_POV(player, map->map[y][x]);
+				set_player_pov(player, map->map[y][x]);
 				return ;
 			}
+			x++;
 		}
+		y++;
 	}
 }

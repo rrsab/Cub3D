@@ -46,7 +46,7 @@ void	init_mlx(t_win *win)
 	}
 	win->img_ptr = mlx_new_image(win->mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
 	win->addr = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->line_length,
-								  &win->endian);
+			&win->endian);
 }
 
 void	init_lodev_struct(t_lodev *lodev)

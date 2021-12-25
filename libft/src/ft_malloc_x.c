@@ -9,5 +9,3 @@ void	*ft_malloc_x(size_t size)
 		ft_error(NULL);
 	return (ptr);
 }
-
-

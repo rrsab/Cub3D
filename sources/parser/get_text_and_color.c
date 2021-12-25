@@ -52,5 +52,5 @@ void	get_text_and_color(char *str, t_map *map)
 	else
 		ft_error("invalid param\n");
 	map->param_match = (map->floor >= 0 && map->ceiling >= 0 && map->xpm[0]
-						&& map->xpm[1] && map->xpm[2] && map->xpm[3]);
+			&& map->xpm[1] && map->xpm[2] && map->xpm[3]);
 }

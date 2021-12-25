@@ -1,5 +1,5 @@
 #ifndef MACOS_KEYBOARD_H
-#define MACOS_KEYBOARD_H
+# define MACOS_KEYBOARD_H
 
 # define STDIN 0
 # define STDOUT 1

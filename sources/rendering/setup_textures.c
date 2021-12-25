@@ -1,30 +1,20 @@
 #include "cub3d.h"
 
-static unsigned int	setup_color_texture(t_texture *img, int i, int j)
-{
-	unsigned int	color;
-	char			*addr;
-
-	addr = img->addr + (j * img->size_line + i * (img->bpp / 8));
-	color = *(unsigned int *)addr;
-	return (color);
-}
-
 static void	setup_texture(t_main *data, t_texture *texture, char *file)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 	int	width_texture;
-	int height_texture;
+	int	height_texture;
 
 	texture->img = mlx_xpm_file_to_image(data->win->mlx_ptr, file,
-				 &width_texture, &height_texture);
+			&width_texture, &height_texture);
 	if (!texture->img)
 		ft_error("xpm file not read\n");
 	if (height_texture != 64 || width_texture != 64)
 		ft_error("wrong texture size\n");
 	texture->addr = mlx_get_data_addr(texture->img, &texture->bpp,
-				  &texture->size_line, &texture->endian);
+			&texture->size_line, &texture->endian);
 	texture->matrix = ft_malloc_x(sizeof(int *) * width_texture);
 	i = -1;
 	while (++i < width_texture)

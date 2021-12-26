@@ -31,10 +31,10 @@ endif
 ifeq ($(OS), Darwin)
 	COMPILE = MAC OS Compile...
 	#@echo "$(F_GREEN)MAC OS Compile...$(F_NONE)"
-	MINILIBX_DIR = minilibx/minilibx_mac
-	LIB_MLX = ./minilibx/minilibx_mac
+	MINILIBX_DIR = minilibx/minilibx_opengl
+	LIB_MLX = ./minilibx/minilibx_opengl
 	OPENGL = -lz -framework OpenGL -framework AppKit
-	MLX_A = libmlx.dylib
+	MLX_A = libmlx.a
 	FLAGS	+= -D DARWIN=1
 endif
 

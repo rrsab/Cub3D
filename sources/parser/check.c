@@ -65,7 +65,7 @@ void	check_map(t_map *map)
 		x = 0;
 		while (++x < map->width - 1)
 		{
-			if (!ft_strchr(" 01NEWS", map->map[y][x])
+			if (ft_strchr("0NEWS", map->map[y][x])
 				&& check_wall(map->map, y, x))
 				ft_error("this is the black hole on the map\n");
 		}

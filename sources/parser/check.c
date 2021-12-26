@@ -42,16 +42,30 @@ void	check_map_symbols(t_list *map_list)
 		ft_error("there must be at least one player\n");
 }
 
-static bool	check_wall(char **map, int y, int x)
+static int	check_wall(char **map, int y, int x)
 {
-	return (!map[y + 1][x] || map[y + 1][x] == ' '
+	return ((!map[y + 1][x] || map[y + 1][x] == ' '
 			|| !map[y - 1][x] || map[y - 1][x] == ' '
 			|| !map[y][x + 1] || map[y][x + 1] == ' '
 			|| !map[y][x - 1] || map[y][x - 1] == ' '
 			|| !map[y + 1][x + 1] || map[y + 1][x + 1] == ' '
 			|| !map[y + 1][x - 1] || map[y + 1][x - 1] == ' '
 			|| !map[y - 1][x + 1] || map[y - 1][x + 1] == ' '
-			|| !map[y - 1][x - 1] || map[y - 1][x - 1] == ' ');
+			|| !map[y - 1][x - 1] || map[y - 1][x - 1] == ' '));
+}
+
+static int	cub_strchr(const char *str, int c)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 void	check_map(t_map *map)
@@ -65,7 +79,7 @@ void	check_map(t_map *map)
 		x = 0;
 		while (++x < map->width - 1)
 		{
-			if (ft_strchr("0NEWS", map->map[y][x])
+			if (cub_strchr("NEWS0", map->map[y][x])
 				&& check_wall(map->map, y, x))
 				ft_error("this is the black hole on the map\n");
 		}

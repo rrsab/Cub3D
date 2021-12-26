@@ -27,6 +27,28 @@ static void	parsing_param(int fd, t_map *map)
 	}
 }
 
+static void	trimming_map(t_map *map)
+{
+	int		y;
+	int		i;
+	char	**map_trim;
+
+	map->width -= 2;
+	map->height -= 2;
+	y = -1;
+	i = 0;
+	map_trim = ft_malloc_x(sizeof(char *) * (map->height + 1));
+	while (++y < map->height + 2)
+	{
+		if (y != 0 && y != (map->height + 1))
+			map_trim[i++] = ft_strdup(map->map[y] + 1);
+		free(map->map[y]);
+	}
+	map_trim[i] = NULL;
+	free(map->map);
+	map->map = map_trim;
+}
+
 void	parsing(int argc, char *file, t_main *data)
 {
 	int	fd;
@@ -37,6 +59,8 @@ void	parsing(int argc, char *file, t_main *data)
 	parsing_param(fd, data->map);
 	close(fd);
 	map_creation(data->map);
+	check_map(data->map);
+	trimming_map(data->map);
 	if (!data->map->param_match)
 		ft_error("map is not valid\n");
 	find_player(data->player, data->map);

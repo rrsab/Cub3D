@@ -60,19 +60,21 @@ static void	trimming_map(t_map *map)
 
 static void	fill_map(t_map *map, t_list **map_list)
 {
-	int	y;
+	int		y;
+	t_list	*list;
 
 	map->width += 2;
 	map->height += 2;
 	map->map = ft_malloc_x(sizeof(char *) * map->height);
 	y = 0;
+	list = *map_list;
 	while (y < map->height)
 	{
-		map->map[y] = ft_malloc_x(sizeof(char *) * map->width);
+		map->map[y] = ft_malloc_x(sizeof(char) * map->width);
 		if (y > 0 && y < map->height - 1)
 		{
-			ft_strlcpy(map->map[y] + 1, (*map_list)->val, map->width - 1);
-			(*map_list) = (*map_list)->next;
+			ft_strlcpy(map->map[y] + 1, list->val, map->width - 1);
+			list = list->next;
 		}
 		y++;
 	}

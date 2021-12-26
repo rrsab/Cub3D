@@ -16,7 +16,7 @@ include_directories(minilibx/minilibx_opengl)
 include_directories(minilibx)
 
 file (GLOB SOURCES
-        "sources/*.c"
+        "sources/main.c"
         "sources/parser/*.c"
         "sources/rendering/*.c"
         "sources/events/*.c")

@@ -79,8 +79,8 @@ void	draw_line(t_main *data, t_lodev *lodev, int x)
 
 static void	set_aim(t_main *data, int height, int width)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < 8)
@@ -88,11 +88,13 @@ static void	set_aim(t_main *data, int height, int width)
 		x = 0;
 		while (x < 8)
 		{
-			ft_mlx_pixel_put(data->win, width + y, height + x, GREEN);
-			ft_mlx_pixel_put(data->win, width + y, height - x, GREEN);
-			ft_mlx_pixel_put(data->win, width - y, height + x, GREEN);
-			ft_mlx_pixel_put(data->win, width - y, height - x, GREEN);
-
+			if ((x > 2 && x < 8 && y < 2) || (y > 2 && y < 8 && x < 2))
+			{
+				ft_mlx_pixel_put(data->win, width + y, height + x, GREEN);
+				ft_mlx_pixel_put(data->win, width + y, height - x, GREEN);
+				ft_mlx_pixel_put(data->win, width - y, height + x, GREEN);
+				ft_mlx_pixel_put(data->win, width - y, height - x, GREEN);
+			}
 			x++;
 		}
 		y++;

@@ -38,7 +38,7 @@ void	ft_mlx_pixel_put(t_win *win, int x, int y, int color)
 {
 	char	*addr;
 
-	addr = win->addr + y * win->line_length + x * (win->bpp / 8);
+	addr = win->addr + (y - 1) * win->line_length + (x - 1) * (win->bpp / 8);
 	*(unsigned int *)addr = color;
 }
 
